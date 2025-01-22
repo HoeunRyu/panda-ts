@@ -1,5 +1,3 @@
-// import sortIcon from "public/assets/sort_icon.png";
-// import mobileSortIcon from "public/assets/mobile_sort_icon.png";
 import { useResponseSort } from "@/shared/hooks/responseSortHook";
 import { ORDER_BY } from "../../../../../utils/APIs/getItemsListAPI";
 import { typoStyles } from "@/shared/Typo/Typo";
@@ -8,7 +6,7 @@ import { useMediaQuery } from "@/shared/hooks/mediaQueryHook";
 //ORDER_BY의 값만 배열로 가져오기
 const ORDER_BY_VALUE_ARR = Object.values(ORDER_BY);
 
-export function SortItems({ onSortChange }: any) {
+export function SortItems({ onSortChange }) {
   const screenSize = useMediaQuery();
   const { selectedName, showDropdown, handleSelectSort, toggleDropdown } =
     useResponseSort(ORDER_BY.RECENT); //초기값은 "최신순"으로 설정

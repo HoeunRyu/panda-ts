@@ -33,18 +33,6 @@ export function ItemCard({ product }) {
             src={"/assets/favorite_heart.png"}
             alt="좋아요 아이콘"
           />
-          {/*<div
-            style={{
-              width: "100px",
-            }}
-          >
-          </div> */}
-          <Image
-            src="/assets/favorite_heart.png"
-            alt="좋아요 아이콘"
-            fill
-            style={{ objectFit: "contain", zIndex: 1, pointerEvents: "none" }}
-          />
           <Typo
             className={`${typoStyles.textXsMedium} fav-count`}
             content={favoritesCount}

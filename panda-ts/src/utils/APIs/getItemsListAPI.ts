@@ -1,11 +1,6 @@
+import { AxiosResponse } from "axios";
 import { instance } from "./axiosInstance";
-
-interface QueryParams {
-  page: number;
-  limit: number;
-  sort: string;
-  keyword: string;
-}
+import { GetProdApiQueryParams, ProductList, OrderByType } from "@/shared/type";
 
 /** 상품 목록 조회
  * @param {Object} params - 쿼리 정보
@@ -14,22 +9,28 @@ interface QueryParams {
  * @param {string} params.sort - 정렬 기준(recent, favorite)
  * @param {string} params.keyword - 검색 키워드
  */
-export const getItemsListAPI = async (params: Partial<QueryParams> = {}) => {
+export const getItemsListAPI = async (
+  params: Partial<GetProdApiQueryParams> = {}
+): Promise<ProductList> => {
   //쿼리 기본값
   const { page = 1, limit = 10, sort = "recent", keyword = "" } = params;
 
   try {
-    const response = await instance.get("/products", {
-      params: { page, limit, sort, keyword },
-    });
+    const response: AxiosResponse<ProductList> = await instance.get(
+      "/products",
+      {
+        params: { page, limit, sort, keyword },
+      }
+    );
+    response.status;
     console.log("getItemsList", response.data);
     return response.data;
   } catch (err) {
-    console.log("error: ", err);
+    throw err;
   }
 };
 
-export const ORDER_BY = {
+export const ORDER_BY: OrderByType = {
   RECENT: { value: "recent", name: "최신순" },
   FAVORITE: { value: "favorite", name: "좋아요순" },
 };

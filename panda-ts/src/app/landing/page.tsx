@@ -7,7 +7,16 @@ import "./LandingPage.css";
 import { LandingMainCards } from "./ui/LandingMainCards";
 import Link from "next/link";
 
-const MAIN_CARD_CONTENTS = [
+interface LandingMainCardsProps {
+  img: string;
+  badge: string;
+  title1: string;
+  title2: string;
+  desc1: string;
+  desc2: string;
+}
+
+const MAIN_CARD_CONTENTS: LandingMainCardsProps[] = [
   {
     img: "/assets/hot_item_img.png",
     badge: "Hot item",

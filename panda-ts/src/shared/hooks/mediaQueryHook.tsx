@@ -1,9 +1,17 @@
+import { NodejsRequestData } from "next/dist/server/web/types";
 import { create } from "zustand";
 
 const BREAKPOINTS = {
   MOBILE: 743,
   TABLET: 1199,
 };
+
+type ScreenSizeType = "MOBILE" | "TABLET" | "DESKTOP";
+
+interface ScreenSizeState {
+  screenSize: ScreenSizeType;
+  updateScreenSize: () => void;
+}
 
 /**
  * 반응형 분기 시점에 대한 윈도우 사이즈를 텍스트로 반환
@@ -17,14 +25,14 @@ const getScreenSize = () => {
 };
 
 //스크린사이즈 변경되면 상태 업데이트
-const useScreenSizeStore = create((set, get) => ({
+const useScreenSizeStore = create<ScreenSizeState>((set, get) => ({
   //상태
   screenSize: getScreenSize(),
 
   //액션
   updateScreenSize: () => {
-    const currentScreenSize = get().screenSize; //스토어에 저장된 현재 스크린사이즈
-    const newSize = getScreenSize(); //액션이 일어났을 때 새로 받아온 스크린사이즈
+    const currentScreenSize: ScreenSizeType = get().screenSize; //스토어에 저장된 현재 스크린사이즈
+    const newSize: ScreenSizeType = getScreenSize(); //액션이 일어났을 때 새로 받아온 스크린사이즈
     console.log("현재 스크린사이즈: ", currentScreenSize);
     console.log("스크린사이즈 변경 감지, 새로운 스크린사이즈: ", newSize);
 
@@ -37,15 +45,15 @@ const useScreenSizeStore = create((set, get) => ({
 }));
 
 //스토어에서 변경된 스크린사이즈 불러오기
-export const useMediaQuery = () =>
+export const useMediaQuery = (): ScreenSizeType =>
   useScreenSizeStore((state) => state.screenSize);
 
 //이벤트 리스너 디바운스
 //창 크기를 빠르게 변경해도 마지막 크기 변경 후(창 크기 변경을 멈추면) 0.2초 뒤에 한번만 업데이트 액션 호출됨.
-let timeId = 0;
-window.addEventListener("resize", () => {
+let timeId: NodeJS.Timeout;
+window.addEventListener("resize", (): void => {
   clearTimeout(timeId);
-  timeId = setTimeout(() => {
+  timeId = setTimeout((): void => {
     useScreenSizeStore.getState().updateScreenSize();
   }, 200);
 });

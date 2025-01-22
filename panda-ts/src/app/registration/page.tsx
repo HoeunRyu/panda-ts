@@ -23,28 +23,28 @@ export default function Page() {
       placeholder: "상품명을 입력해주세요",
       type: "text",
       field: "name",
-      onInput: (value) => updateBody("name", value),
+      onInput: (value: string) => updateBody("name", value),
     },
     {
       label: "상품 소개",
       placeholder: "상품 소개를 입력해주세요",
       type: "textarea",
       field: "description",
-      onInput: (value) => updateBody("description", value),
+      onInput: (value: string) => updateBody("description", value),
     },
     {
       label: "판매가격",
       placeholder: "판매 가격을 입력해주세요",
       type: "text",
       field: "price",
-      onInput: (value) => updateBody("price", value),
+      onInput: (value: string) => updateBody("price", value),
     },
     {
       label: "태그",
       placeholder: "태그를 입력해주세요",
       type: "text",
       field: "tagInput",
-      onInput: (value) => updateTags(value),
+      onInput: (value: string) => updateTags(value),
     },
   ];
 

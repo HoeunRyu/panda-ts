@@ -30,8 +30,8 @@ export function BestItems() {
   //api호출
   const { productList, isLoading } = useItemsFetch(params);
 
-  //XXX: 스켈레톤 ui는 일부러 시간을 지연시키고 보여주기도 함(useItemsFetch에서 최소 지연 시간 설정)
-  //XXX: https://tech.kakaopay.com/post/skeleton-ui-idea/
+  //스켈레톤 ui는 일부러 시간을 지연시키고 보여주기도 함(useItemsFetch에서 최소 지연 시간 설정)
+  //https://tech.kakaopay.com/post/skeleton-ui-idea/
   const isShowSkeleton = isLoading || !productList.length;
 
   return (

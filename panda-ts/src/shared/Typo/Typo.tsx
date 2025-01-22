@@ -1,3 +1,4 @@
+import React from "react";
 import "./Typo.css";
 
 /**
@@ -38,12 +39,11 @@ export const typoStyles = {
   textXsRegular: "text-xs regular",
 };
 
-/**
- * 텍스트 출력 컴포넌트
- * @param {string} className - 텍스트 스타일 적용할 클래스네임
- * @param {string} content - 출력할 텍스트 내용
- * @returns {JSX.Element} 텍스트 포함된 p 요소
- */
-export const Typo = ({ className, content }) => {
+interface TypoParams {
+  className: string;
+  content: string;
+}
+
+export const Typo: React.FC<TypoParams> = ({ className, content }) => {
   return <p className={className}>{content}</p>;
 };
