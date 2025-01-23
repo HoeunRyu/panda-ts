@@ -4,7 +4,7 @@ import { PostItems } from "./ui/PostItems";
 import { SortItems } from "./ui/SortItems";
 import { ItemCard } from "../common/ui/ItemCard";
 import { PaginationItems } from "./ui/PaginationItems";
-import { Typo, typoStyles } from "../../../../shared/Typo/Typo";
+import { Typo } from "../../../../shared/Typo/Typo";
 import { useMediaQuery } from "../../../../shared/hooks/mediaQueryHook";
 import { useItemsFetch } from "../common/hooks/itemsFetchHook";
 import { useCallback, useEffect, useState } from "react";
@@ -48,7 +48,8 @@ export function OnSaleItems() {
     <section id="on-sale-items">
       <div className="section-top">
         <Typo
-          className={`${typoStyles.textXlBold} section-title`}
+          className={"textXlBold"}
+          color="#1f2937"
           content="판매 중인 상품"
         />
         <div className="utility-box">

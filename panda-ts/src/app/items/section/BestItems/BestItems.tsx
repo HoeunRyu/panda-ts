@@ -2,7 +2,7 @@ import "./BestItems.css";
 import { ItemCard } from "../common/ui/ItemCard";
 import { SkeletonCard } from "../common/ui/SkeletonCard";
 import { ORDER_BY } from "../../../../utils/APIs/getItemsListAPI";
-import { Typo, typoStyles } from "@/shared/Typo/Typo";
+import { Typo } from "@/shared/Typo/Typo";
 import { useMediaQuery } from "@/shared/hooks/mediaQueryHook";
 import { useItemsFetch } from "../common/hooks/itemsFetchHook";
 import { useState, useEffect } from "react";
@@ -36,10 +36,7 @@ export function BestItems() {
 
   return (
     <section id="best-items">
-      <Typo
-        className={`${typoStyles.textXlBold} section-title`}
-        content="베스트 상품"
-      />
+      <Typo className={"textXlBold"} content="베스트 상품" color="#1f2937" />
       <div className="cards-box">
         {isShowSkeleton
           ? Array.from({ length: limit }).map((_, idx) => (

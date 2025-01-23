@@ -5,6 +5,7 @@ import { RegItemInput } from "./ui/RegItemInput";
 import { Typo, typoStyles } from "../../shared/Typo/Typo";
 import { TagWithClose } from "./ui/TagWithClose";
 import { useRegItem } from "./hooks/regItemHook";
+import { colorChips } from "@/shared/styles/colorChips";
 
 export default function Page() {
   const {
@@ -52,8 +53,9 @@ export default function Page() {
     <div className="content" id="registration-items-page">
       <div className="section-top">
         <Typo
-          className={`${typoStyles.textXlBold} section-text`}
+          className={"textXlBold"}
           content="상품 등록하기"
+          color={colorChips.gray800}
         />
         <button
           id="reg-btn"

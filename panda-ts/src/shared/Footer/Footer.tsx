@@ -31,7 +31,7 @@ export function Footer() {
     <footer>
       <div className="content">
         <div id="addr">
-          <Typo className={typoStyles.textLgRegular} content="©codeit - 2024" />
+          <Typo className={"textLgRegular"} content="©codeit - 2024" />
         </div>
 
         <FooterLink />

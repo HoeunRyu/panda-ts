@@ -1,8 +1,7 @@
 import "./ItemCard.css";
 import Link from "next/link";
 import { CardImg } from "@/shared/ui/CardImg";
-import { Typo, typoStyles } from "@/shared/Typo/Typo";
-import Image from "next/image";
+import { Typo } from "@/shared/Typo/Typo";
 
 export function ItemCard({ product }) {
   const {
@@ -25,8 +24,8 @@ export function ItemCard({ product }) {
       />
 
       <div className="item-card-text">
-        <Typo className={typoStyles.textMdMedium} content={name} />
-        <Typo className={typoStyles.textLgBold} content={formattedPrice} />
+        <Typo className={"textMdMedium"} content={name} />
+        <Typo className={"textLgBold"} content={formattedPrice} />
         <div className="fav-count-box">
           <img
             className="fav-heart-icon"
@@ -34,8 +33,9 @@ export function ItemCard({ product }) {
             alt="좋아요 아이콘"
           />
           <Typo
-            className={`${typoStyles.textXsMedium} fav-count`}
+            className={"textXsMedium"}
             content={favoritesCount}
+            color="4b5563"
           />
         </div>
       </div>

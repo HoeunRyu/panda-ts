@@ -62,10 +62,7 @@ export function RegItemInput({
 
   return (
     <div className="input-wrapper">
-      <Typo
-        className={`${typoStyles.text2lgBold} section-text`}
-        content={label}
-      />
+      <Typo className={"text2lgBold"} content={label} color="#4b5563" />
 
       {type === "textarea" ? (
         <textarea {...commonProps} type={type} />
@@ -74,10 +71,7 @@ export function RegItemInput({
       )}
 
       {errMsg && (
-        <Typo
-          className={`err-text ${typoStyles.textLgSemibold} ${errMsgClassName}`}
-          content={errMsg}
-        />
+        <Typo className={"textLgSemibold"} color="#f74747" content={errMsg} />
       )}
     </div>
   );

@@ -9,7 +9,6 @@ import "./Typo.css";
  * weight 옵션: bold, semibold, medium, regular
  */
 export const typoStyles = {
-  text4xlBold: "text-4xl bold",
   text3xlBold: "text-3xl bold",
   text3xlSemibold: "text-3xl semibold",
   text2xlBold: "text-2xl bold",
@@ -37,13 +36,20 @@ export const typoStyles = {
   textXsSemibold: "text-xs semibold",
   textXsMedium: "text-xs medium",
   textXsRegular: "text-xs regular",
-};
+} as const;
+
+type TypoStylesKey = keyof typeof typoStyles;
 
 interface TypoParams {
-  className: string;
+  className: TypoStylesKey;
   content: string;
+  color?: string;
 }
 
-export const Typo: React.FC<TypoParams> = ({ className, content }) => {
-  return <p className={className}>{content}</p>;
+export const Typo: React.FC<TypoParams> = ({ className, content, color }) => {
+  return (
+    <p className={typoStyles[className]} style={{ color: color ?? "black" }}>
+      {content}
+    </p>
+  );
 };

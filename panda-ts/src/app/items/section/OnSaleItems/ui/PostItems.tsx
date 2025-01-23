@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Typo, typoStyles } from "@/shared/Typo/Typo";
+import { Typo } from "@/shared/Typo/Typo";
 
 export function PostItems() {
   return (
@@ -10,7 +10,7 @@ export function PostItems() {
         console.log("click");
       }}
     >
-      <Typo className={typoStyles.textLgSemibold} content="상품 등록하기" />
+      <Typo className={"textLgSemibold"} content="상품 등록하기" />
     </Link>
   );
 }
