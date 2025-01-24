@@ -18,7 +18,6 @@ export const createItemAPI = async (
       "/products",
       params
     );
-    console.log("postItem :", response.data);
     return response.data;
   } catch (err) {
     throw err;

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Typo } from "../../Typo/Typo";
 import React from "react";
+import { colorChips } from "@/shared/styles/colorChips";
 
 interface HeaderUserProps {
   isLoggedIn: boolean;
@@ -23,7 +24,11 @@ export const HeaderUser: React.FC<HeaderUserProps> = ({
       ) : (
         // TODO: 링크 수정하기 "/login"
         <Link id="login-btn" href="/">
-          <Typo className={"textLgSemibold"} content="로그인" />
+          <Typo
+            className={"textLgSemibold"}
+            color={colorChips.gray100}
+            content="로그인"
+          />
         </Link>
       )}
     </div>

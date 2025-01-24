@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { OrderByItem } from "../type";
 
-//XXX: 이렇게까지 지정해주는게 맞는가..???
-interface UseResponseSortReturn {
+interface UseResponseSortOutput {
   selectedName: string;
   showDropdown: boolean;
   handleSelectSort: (item: OrderByItem) => void;
   toggleDropdown: () => void;
 }
 
-export function useResponseSort(initValue: OrderByItem): UseResponseSortReturn {
+export function useResponseSort(initValue: OrderByItem): UseResponseSortOutput {
   //초기값은 최신순으로 설정
   const [selectedName, setSelectedName] = useState<string>(initValue.name);
   const [showDropdown, setShowDropdown] = useState<boolean>(false);

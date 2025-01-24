@@ -1,3 +1,5 @@
+export type ScreenSizeType = "MOBILE" | "TABLET" | "DESKTOP";
+
 //상품 getAPI 쿼리 파라미터
 export interface GetProdApiQueryParams {
   page?: number;
@@ -9,8 +11,8 @@ export interface GetProdApiQueryParams {
 //상품 postAPI 쿼리 파라미터
 export interface PostProdApiQueryParams {
   name: string;
-  description: string;
-  price: number;
+  description?: string;
+  price?: string;
   tags?: string[];
   images?: string[];
 }
@@ -29,7 +31,7 @@ export interface Product {
 }
 
 export interface ProductList {
-  productList: Product[];
+  ProductList: Product[];
   page: number;
   limit: number;
   sort: string;
@@ -38,6 +40,8 @@ export interface ProductList {
   totalPages: number;
   totalProducts: number;
 }
+
+export type ProductState = Pick<ProductList, "ProductList" | "totalPages">;
 
 //정렬 기준
 export interface OrderByItem {

@@ -1,11 +1,18 @@
+import { colorChips } from "@/shared/styles/colorChips";
 import "./TagWithClose.css";
-import { Typo, typoStyles } from "@/shared/Typo/Typo";
+import { Typo } from "@/shared/Typo/Typo";
+import React from "react";
+import { TagWithCloseProps } from "../type";
 
-export function TagWithClose({ tag, deleteTag }) {
+export const TagWithClose: React.FC<TagWithCloseProps> = ({
+  tag,
+  deleteTag,
+}) => {
   return (
     <div className="tag-chips">
       <Typo
-        className={`${typoStyles.textLgRegular} section-text`}
+        className={"textLgRegular"}
+        color={colorChips.gray800}
         content={`#${tag}`}
       />
       <img
@@ -16,4 +23,4 @@ export function TagWithClose({ tag, deleteTag }) {
       />
     </div>
   );
-}
+};

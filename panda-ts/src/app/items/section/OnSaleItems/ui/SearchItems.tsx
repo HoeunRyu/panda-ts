@@ -1,16 +1,23 @@
 // import searchIcon from "public/assets/search_icon.png";
 import { typoStyles } from "@/shared/Typo/Typo";
+import React from "react";
 
-export function SearchItems({ onSearch }: any) {
+interface SearchItemsProps {
+  onSearch: (keyword: string) => void;
+}
+
+export const SearchItems: React.FC<SearchItemsProps> = ({ onSearch }) => {
   //입력받은 키워드 상위 컴포넌트에 전달해 파라미터 업데이트
-  const handleBlur = (e) => {
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>): void => {
     const value = e.target.value.trim();
     onSearch(value);
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+    const target = e.currentTarget;
+
     if (e.key === "Enter") {
-      const value = e.target.value.trim();
+      const value = target.value.trim();
       onSearch(value);
     }
   };
@@ -33,4 +40,4 @@ export function SearchItems({ onSearch }: any) {
       />
     </div>
   );
-}
+};

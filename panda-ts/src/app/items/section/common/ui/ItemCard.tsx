@@ -2,8 +2,15 @@ import "./ItemCard.css";
 import Link from "next/link";
 import { CardImg } from "@/shared/ui/CardImg";
 import { Typo } from "@/shared/Typo/Typo";
+import { colorChips } from "@/shared/styles/colorChips";
+import { Product } from "@/shared/type";
+import React from "react";
 
-export function ItemCard({ product }) {
+export function ItemCard({
+  product,
+}: {
+  product: Product;
+}): React.ReactElement {
   const {
     images: [productImg], //반환된 배열에서 첫번째 링크 대표 이미지로 사용
     name,
@@ -24,8 +31,16 @@ export function ItemCard({ product }) {
       />
 
       <div className="item-card-text">
-        <Typo className={"textMdMedium"} content={name} />
-        <Typo className={"textLgBold"} content={formattedPrice} />
+        <Typo
+          className={"textMdMedium"}
+          color={colorChips.gray800}
+          content={name}
+        />
+        <Typo
+          className={"textLgBold"}
+          color={colorChips.gray800}
+          content={formattedPrice}
+        />
         <div className="fav-count-box">
           <img
             className="fav-heart-icon"
@@ -34,8 +49,8 @@ export function ItemCard({ product }) {
           />
           <Typo
             className={"textXsMedium"}
-            content={favoritesCount}
-            color="4b5563"
+            content={favoritesCount.toString()}
+            color={colorChips.gray600}
           />
         </div>
       </div>

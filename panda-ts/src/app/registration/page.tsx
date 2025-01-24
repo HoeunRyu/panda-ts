@@ -6,48 +6,17 @@ import { Typo, typoStyles } from "../../shared/Typo/Typo";
 import { TagWithClose } from "./ui/TagWithClose";
 import { useRegItem } from "./hooks/regItemHook";
 import { colorChips } from "@/shared/styles/colorChips";
+import React from "react";
 
-export default function Page() {
+export default function Page(): React.ReactElement {
   const {
     body,
-    updateTags,
     deleteTag,
-    updateBody,
     isInputValid,
     usePostItem,
     isFormDisabled,
+    inputFields,
   } = useRegItem();
-
-  const inputFields = [
-    {
-      label: "상품명",
-      placeholder: "상품명을 입력해주세요",
-      type: "text",
-      field: "name",
-      onInput: (value: string) => updateBody("name", value),
-    },
-    {
-      label: "상품 소개",
-      placeholder: "상품 소개를 입력해주세요",
-      type: "textarea",
-      field: "description",
-      onInput: (value: string) => updateBody("description", value),
-    },
-    {
-      label: "판매가격",
-      placeholder: "판매 가격을 입력해주세요",
-      type: "text",
-      field: "price",
-      onInput: (value: string) => updateBody("price", value),
-    },
-    {
-      label: "태그",
-      placeholder: "태그를 입력해주세요",
-      type: "text",
-      field: "tagInput",
-      onInput: (value: string) => updateTags(value),
-    },
-  ];
 
   return (
     <div className="content" id="registration-items-page">
@@ -74,6 +43,7 @@ export default function Page() {
           {inputFields.map((field) => (
             <RegItemInput
               key={field.field}
+              field={field.field}
               label={field.label}
               placeholder={field.placeholder}
               type={field.type}
@@ -84,8 +54,8 @@ export default function Page() {
           ))}
         </div>
         <div className="tag-chip-wrapper">
-          {body.tags.map((tag, idx) => (
-            <TagWithClose tag={tag} deleteTag={deleteTag} key={idx} />
+          {body.tags.map((tag) => (
+            <TagWithClose tag={tag} deleteTag={deleteTag} key={tag} />
           ))}
         </div>
       </div>

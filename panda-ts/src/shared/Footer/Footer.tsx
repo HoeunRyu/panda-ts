@@ -1,9 +1,16 @@
 import "./Footer.css";
 import { FooterLink } from "./ui/FooterLink";
 import { FooterSns } from "./ui/FooterSns";
-import { Typo, typoStyles } from "../Typo/Typo";
+import { Typo } from "../Typo/Typo";
+import { colorChips } from "../styles/colorChips";
 
-const SNS_LINK_LIST = [
+export interface SnsLinkList {
+  snsName: string;
+  href: string;
+  src: string;
+}
+
+const SNS_LINK_LIST: SnsLinkList[] = [
   {
     snsName: "페이스북",
     href: "https://www.facebook.com/",
@@ -31,7 +38,11 @@ export function Footer() {
     <footer>
       <div className="content">
         <div id="addr">
-          <Typo className={"textLgRegular"} content="©codeit - 2024" />
+          <Typo
+            className={"textLgRegular"}
+            color={colorChips.gray400}
+            content="©codeit - 2024"
+          />
         </div>
 
         <FooterLink />

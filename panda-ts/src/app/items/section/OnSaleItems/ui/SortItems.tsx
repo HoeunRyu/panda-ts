@@ -2,18 +2,25 @@ import { useResponseSort } from "@/shared/hooks/responseSortHook";
 import { ORDER_BY } from "../../../../../utils/APIs/getItemsListAPI";
 import { typoStyles } from "@/shared/Typo/Typo";
 import { useMediaQuery } from "@/shared/hooks/mediaQueryHook";
+import { OrderByItem, ScreenSizeType } from "@/shared/type";
+import React from "react";
 
 //ORDER_BY의 값만 배열로 가져오기
-const ORDER_BY_VALUE_ARR = Object.values(ORDER_BY);
+const ORDER_BY_VALUE_ARR: OrderByItem[] = Object.values(ORDER_BY);
 
-export function SortItems({ onSortChange }) {
-  const screenSize = useMediaQuery();
+interface SortItemsProps {
+  onSortChange: (sort: string) => void;
+}
+
+export const SortItems: React.FC<SortItemsProps> = ({ onSortChange }) => {
+  const screenSize: ScreenSizeType = useMediaQuery();
   const { selectedName, showDropdown, handleSelectSort, toggleDropdown } =
     useResponseSort(ORDER_BY.RECENT); //초기값은 "최신순"으로 설정
 
-  const dropdownMenuClassName = showDropdown ? "show" : "";
-  const sortItemsLabelClassName = screenSize === "MOBILE" ? "mobile" : "";
-  const sortItemsIcon =
+  const dropdownMenuClassName: string = showDropdown ? "show" : "";
+  const sortItemsLabelClassName: string =
+    screenSize === "MOBILE" ? "mobile" : "";
+  const sortItemsIcon: string =
     screenSize === "MOBILE"
       ? "assets/mobile_sort_icon.png"
       : "assets/sort_icon.png";
@@ -34,14 +41,14 @@ export function SortItems({ onSortChange }) {
       <img id="dropdown-icon" src={sortItemsIcon} alt="정렬 아이콘" />
 
       <div className={`dropdown-menu ${dropdownMenuClassName}`}>
-        {ORDER_BY_VALUE_ARR.map((item, idx) => (
+        {ORDER_BY_VALUE_ARR.map((item) => (
           <p
             className="dropdown-option"
             onClick={() => {
               handleSelectSort(item);
               onSortChange(item.value); //sort 파라미터 업데이트
             }}
-            key={idx}
+            key={item.value}
           >
             {item.name}
           </p>
@@ -49,4 +56,4 @@ export function SortItems({ onSortChange }) {
       </div>
     </div>
   );
-}
+};

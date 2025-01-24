@@ -1,4 +1,11 @@
-export function FooterSns({ sns }) {
+import React from "react";
+import { SnsLinkList } from "../Footer";
+
+interface FooterSnsProps {
+  sns: SnsLinkList;
+}
+
+export const FooterSns: React.FC<FooterSnsProps> = ({ sns }) => {
   const alt = `${sns.snsName} 링크`;
 
   return (
@@ -6,4 +13,4 @@ export function FooterSns({ sns }) {
       <img className="sns-icon" src={sns.src} alt={alt} />
     </a>
   );
-}
+};

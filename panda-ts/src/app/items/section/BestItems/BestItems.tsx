@@ -5,19 +5,28 @@ import { ORDER_BY } from "../../../../utils/APIs/getItemsListAPI";
 import { Typo } from "@/shared/Typo/Typo";
 import { useMediaQuery } from "@/shared/hooks/mediaQueryHook";
 import { useItemsFetch } from "../common/hooks/itemsFetchHook";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { colorChips } from "@/shared/styles/colorChips";
+import { ScreenSizeType } from "@/shared/type";
 
 //sizeConfig
-const SCREEN_SIZES_TO_PAGE_SIZE: any = {
+const SCREEN_SIZES_TO_PAGE_SIZE: {
+  MOBILE: number;
+  TABLET: number;
+  DESKTOP: number;
+} = {
   MOBILE: 1,
   TABLET: 2,
   DESKTOP: 4,
 };
 
-export function BestItems() {
-  const screenSize = useMediaQuery();
-  const limit: any = SCREEN_SIZES_TO_PAGE_SIZE[screenSize];
-  const [params, setParams] = useState({
+export function BestItems(): React.ReactElement {
+  const screenSize: ScreenSizeType = useMediaQuery();
+  const limit: number = SCREEN_SIZES_TO_PAGE_SIZE[screenSize];
+  const [params, setParams] = useState<{
+    limit: number;
+    sort: string;
+  }>({
     limit, //현재 screenSize에 해당하는 limit 쿼리로 전달
     sort: ORDER_BY.FAVORITE.value, //정렬 기준: 좋아요순
   });
@@ -30,13 +39,15 @@ export function BestItems() {
   //api호출
   const { productList, isLoading } = useItemsFetch(params);
 
-  //스켈레톤 ui는 일부러 시간을 지연시키고 보여주기도 함(useItemsFetch에서 최소 지연 시간 설정)
-  //https://tech.kakaopay.com/post/skeleton-ui-idea/
   const isShowSkeleton = isLoading || !productList.length;
 
   return (
     <section id="best-items">
-      <Typo className={"textXlBold"} content="베스트 상품" color="#1f2937" />
+      <Typo
+        className={"textXlBold"}
+        content="베스트 상품"
+        color={colorChips.gray800}
+      />
       <div className="cards-box">
         {isShowSkeleton
           ? Array.from({ length: limit }).map((_, idx) => (

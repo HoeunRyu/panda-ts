@@ -1,5 +1,13 @@
 import { useEffect, useCallback, useState } from "react";
 import { getItemsListAPI } from "../../../../../utils/APIs/getItemsListAPI";
+import { GetProdApiQueryParams, Product, ProductList } from "@/shared/type";
+import { ProductState } from "@/shared/type";
+
+interface UseItemsFetchOutput {
+  isLoading: boolean;
+  productList: Product[];
+  totalPages: number;
+}
 
 /**
  * params 변경시 getItemsDataAPI 호출
@@ -7,21 +15,26 @@ import { getItemsListAPI } from "../../../../../utils/APIs/getItemsListAPI";
  * @returns {object} { productList: [], totalPages: 0, isLoading: boolean }
  * @description productList는 각 상품별 이름, 가격, 이미지 링크 등 데이터가 담긴 객체 배열
  */
-export const useItemsFetch = (params) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState({
+export const useItemsFetch = (
+  params: GetProdApiQueryParams
+): UseItemsFetchOutput => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [data, setData] = useState<ProductState>({
     ProductList: [],
     totalPages: 1,
   });
 
-  const fetchItems = useCallback(async () => {
+  const fetchItems = useCallback(async (): Promise<void> => {
     try {
       setIsLoading(true);
       const startTime = Date.now();
 
       console.log("쿼리 파라미터: ", params);
-      const response = await getItemsListAPI(params);
-      setData(response);
+      const response: ProductList = await getItemsListAPI(params);
+      setData({
+        ProductList: response.ProductList,
+        totalPages: response.totalPages,
+      });
 
       // 경과시간 계산
       const elTime = Date.now() - startTime;

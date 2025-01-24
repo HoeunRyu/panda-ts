@@ -2,12 +2,19 @@
 // import arrowRight from "public/assets/arrow_right.png";
 import { typoStyles } from "@/shared/Typo/Typo";
 import { usePagination } from "@/shared/hooks/paginationHook";
+import React from "react";
 
-export function PaginationItems({
+interface PaginationItemsProps {
+  currentPage: number;
+  totalPageCount: number;
+  onPageChange: (page: number) => void;
+}
+
+export const PaginationItems: React.FC<PaginationItemsProps> = ({
   currentPage = 1,
   totalPageCount = 1,
   onPageChange,
-}) {
+}) => {
   const { pageNums, handlePageClick, handlePrevClick, handleNextClick } =
     usePagination(totalPageCount);
 
@@ -47,4 +54,4 @@ export function PaginationItems({
       </div>
     </div>
   );
-}
+};

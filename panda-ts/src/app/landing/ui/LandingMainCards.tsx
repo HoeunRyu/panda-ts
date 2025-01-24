@@ -1,6 +1,23 @@
+import React from "react";
 import "./LandingMainCards.css";
 
-export function LandingMainCards({ img, badge, title1, title2, desc1, desc2 }) {
+export interface LandingMainCardsProps {
+  img: string;
+  badge: string;
+  title1: string;
+  title2: string;
+  desc1: string;
+  desc2: string;
+}
+
+export const LandingMainCards: React.FC<LandingMainCardsProps> = ({
+  img,
+  badge,
+  title1,
+  title2,
+  desc1,
+  desc2,
+}) => {
   const mainCardClassName = badge === "Search" ? "reverse" : "";
 
   return (
@@ -21,4 +38,4 @@ export function LandingMainCards({ img, badge, title1, title2, desc1, desc2 }) {
       </div>
     </section>
   );
-}
+};
