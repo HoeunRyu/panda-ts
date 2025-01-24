@@ -23,7 +23,15 @@ const validRules: {
     errMsg: "10자 이내로 입력해주세요",
   },
   description: {
-    validate: (desc: string) => desc.length < 10 || desc.length > 100,
+    validate: (desc: string) => {
+      if (desc === "") {
+        return false; //에러 났다가 다시 지웠을 때 에러 메시지 없애줌
+      }
+      if (desc.length < 10 || desc.length > 100) {
+        return true;
+      }
+      return false;
+    },
     errMsg: "10자 이상, 100자 이내로 입력해주세요",
   },
   price: {
@@ -123,9 +131,12 @@ export const useRegItem = () => {
     try {
       const { name, description, price, tags } = body;
       const reqBody = { name, description, price, tags };
+      console.log("reqbody 확인확인: ", reqBody);
       const response: Product = await createItemAPI(reqBody);
       console.log("상품 등록 완료 :", response);
       const itemId = response.id;
+      // console.log("등록된 아이디: ", itemId); //FIXME: api 수정하고 다시 확인해보자
+
       router.push(`/items/${itemId}`);
     } catch (error) {
       console.error("상품 등록하기 오류: ", error);

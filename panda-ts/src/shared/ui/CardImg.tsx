@@ -19,7 +19,7 @@ export function CardImg({ className, src, defaultImg, alt }: CardImgProps) {
   const handleImgErr = (): void => setImgErr(true);
 
   //imgErr이 true이거나 src가 아예 없는 경우 디폴트이미지, 정상 url인 경우 src 사용
-  const imgSrc = imgErr || !src ? defaultImg : src;
+  const imgSrc: string = imgErr || !src ? defaultImg : src;
 
   return (
     <img className={className} src={imgSrc} alt={alt} onError={handleImgErr} />

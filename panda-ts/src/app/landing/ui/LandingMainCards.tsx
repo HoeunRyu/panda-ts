@@ -18,7 +18,7 @@ export const LandingMainCards: React.FC<LandingMainCardsProps> = ({
   desc1,
   desc2,
 }) => {
-  const mainCardClassName = badge === "Search" ? "reverse" : "";
+  const mainCardClassName: string = badge === "Search" ? "reverse" : "";
 
   return (
     <section className="main-cards-wrapper">

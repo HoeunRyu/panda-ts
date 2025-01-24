@@ -16,8 +16,8 @@ export const RegItemInput: React.FC<RegItemInputProps> = ({
 }) => {
   //엔터키 입력 상태 ref로 관리
   const enterPressRef = useRef<boolean>(false);
-  const errInputBoxClassName = isError ? "error" : "";
-  const errMsgClassName = isError ? "show" : "";
+  const errInputBoxClassName: string = isError ? "error" : "";
+  const errMsgClassName: string = isError ? "show" : "";
 
   //input에 입력받은 내용 상위 컴포넌트에 전달하고 body 업데이트
   const handleBlur = (

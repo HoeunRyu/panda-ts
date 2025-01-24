@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Typo, typoStyles } from "../../Typo/Typo";
+import { Typo } from "../../Typo/Typo";
 import { colorChips } from "@/shared/styles/colorChips";
 
 export function FooterLink() {

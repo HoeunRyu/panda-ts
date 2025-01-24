@@ -37,8 +37,8 @@ export const useItemsFetch = (
       });
 
       // 경과시간 계산
-      const elTime = Date.now() - startTime;
-      const remainingTime = Math.max(500 - elTime, 0);
+      const elTime: number = Date.now() - startTime;
+      const remainingTime: number = Math.max(500 - elTime, 0);
 
       // 최소 시간 지연(스켈레톤 보여주는 로딩 최소 시간)
       await new Promise((resolve) => setTimeout(resolve, remainingTime));

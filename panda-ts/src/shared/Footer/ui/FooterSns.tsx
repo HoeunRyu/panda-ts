@@ -6,7 +6,7 @@ interface FooterSnsProps {
 }
 
 export const FooterSns: React.FC<FooterSnsProps> = ({ sns }) => {
-  const alt = `${sns.snsName} 링크`;
+  const alt: string = `${sns.snsName} 링크`;
 
   return (
     <a href={sns.href} target="_blank" rel="noopener noreferrer">
