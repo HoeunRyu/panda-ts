@@ -1,6 +1,5 @@
 @import "../../../../shared/styles/color.css";
 
-/* FIXME: 여기도 컴포넌트단위로 나눌지 고민 */
 #on-sale-items {
   display: flex;
   flex-direction: column;

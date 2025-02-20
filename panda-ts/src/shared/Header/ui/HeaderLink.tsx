@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { useMediaQuery } from "../../hooks/mediaQueryHook";
 import { usePathname } from "next/navigation";
