@@ -13,6 +13,9 @@ interface BestCardProps {
   isLoading: boolean;
 }
 
+//TODO: 카드 클릭 시 게시글 상세 페이지로 이동
+//TODO: 로딩중 스켈레톤 표시
+
 export const BestCard = ({ article, isLoading }: BestCardProps) => {
   //FIXME: 아직 user 정보가 없어서 임시 닉네임 설정
   const nickname = "총명한판다";
