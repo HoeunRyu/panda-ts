@@ -53,3 +53,40 @@ export interface OrderByType {
   RECENT: OrderByItem;
   FAVORITE: OrderByItem;
 }
+
+//게시글 getAPI 쿼리 파라미터
+export interface GetArticleApiQueryParams {
+  page?: number;
+  limit?: number;
+  sort?: string;
+  keyword?: string;
+}
+
+//게시글 postAPI 쿼리 파라미터
+export interface PostArticleApiQueryParams {
+  title: string;
+  content: string;
+  image?: string;
+}
+
+//게시글 getAPI 응답 객체
+export interface Article {
+  id: number;
+  title: string;
+  content: string;
+  image: string;
+  favoritesCount: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface ArticleList {
+  ArticleList: Article[];
+  page: number;
+  limit: number;
+  sort: string;
+  keyword: string;
+  status: number;
+  totalPages: number;
+  totalArticles: number;
+}
