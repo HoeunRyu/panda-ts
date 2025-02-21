@@ -4,8 +4,8 @@ import { Stack } from "@mui/material";
 import { BestCard } from "./core/components/BestCard";
 import { ScreenSizeType } from "@/shared/type";
 import { useMediaQuery } from "@/shared/hooks/mediaQueryHook";
-import { useBestArticles } from "./core/hooks/useArticleListQuery";
-
+import { useBestArticles } from "../../core/hooks/useArticleListQuery";
+import { useRouter } from "next/navigation";
 //sizeConfig
 const SCREEN_SIZES_TO_LIMIT: {
   MOBILE: number;
@@ -18,10 +18,15 @@ const SCREEN_SIZES_TO_LIMIT: {
 };
 
 export const BestArticles = () => {
+  const router = useRouter();
   const screenSize: ScreenSizeType = useMediaQuery();
   const limit: number = SCREEN_SIZES_TO_LIMIT[screenSize];
 
   const { articles, isLoading } = useBestArticles(limit);
+
+  const handleClickArticle = (articleId: string) => {
+    router.push(`/freeboard/${articleId}`);
+  };
 
   return (
     <Stack sx={bestArticlesStyle}>
@@ -32,7 +37,12 @@ export const BestArticles = () => {
       />
       <Stack sx={bestArticleListStyle}>
         {articles.map((article) => (
-          <BestCard key={article.id} article={article} isLoading={isLoading} />
+          <BestCard
+            key={article.id}
+            article={article}
+            isLoading={isLoading}
+            onClick={() => handleClickArticle(article.id.toString())}
+          />
         ))}
       </Stack>
     </Stack>

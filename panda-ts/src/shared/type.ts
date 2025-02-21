@@ -78,6 +78,7 @@ export interface Article {
   favoritesCount: number;
   createdAt: string;
   updatedAt: string;
+  deletedAt: string;
 }
 
 export interface ArticleList {

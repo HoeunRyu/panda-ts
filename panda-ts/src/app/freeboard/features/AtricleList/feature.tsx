@@ -3,15 +3,22 @@ import { Typo } from "@/shared/Typo/Typo";
 import { CircularProgress, Stack } from "@mui/material";
 import { ArticlePostBtn } from "./core/components/ArticlePostBtn";
 import { SearchArticles } from "./core/components/SearchArticles";
-import { useSearchStore } from "../BestArticles/core/hooks/useSearchStore";
+import { useSearchStore } from "../../core/hooks/useSearchStore";
 import { SortArticles } from "./core/components/SortArticles";
-import { useArticleList } from "../BestArticles/core/hooks/useArticleListQuery";
+import { useArticleList } from "../../core/hooks/useArticleListQuery";
 import { ArticleCard } from "./core/components/ArticleCard";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export const AtricleList = () => {
   const { updateParams } = useSearchStore();
+  const router = useRouter();
+
+  const handleClickArticle = (articleId: string) => {
+    router.push(`/freeboard/${articleId}`);
+  };
 
   const handleUpdateParams = (field: "keyword" | "sort", value: string) => {
     updateParams(field, value);
@@ -43,15 +50,18 @@ export const AtricleList = () => {
     }
   }, [inView, hasNextPage, fetchNextPage, isFetchingNextPage]);
 
+  //TODO: 스켈레톤, 게시글 없을 때 ui 수정하기
   return (
     <Stack sx={articleListContainerStyle}>
       <Stack sx={articleListHeaderStyle}>
         <Typo
           className="text20Bold"
-          content="게시글 목록"
+          content="게시글"
           color={colorChips.gray900}
         />
-        <ArticlePostBtn />
+        <Link href="/freeboard/post">
+          <ArticlePostBtn />
+        </Link>
       </Stack>
       <Stack sx={articleListHeaderStyle}>
         <SearchArticles
@@ -76,7 +86,11 @@ export const AtricleList = () => {
             {articles.map((article, idx) => {
               const isLastItem = idx === articles.length - 1;
               return (
-                <Stack key={article.id} sx={{ flexDirection: "column" }}>
+                <Stack
+                  key={article.id}
+                  sx={{ flexDirection: "column" }}
+                  onClick={() => handleClickArticle(article.id.toString())}
+                >
                   <ArticleCard article={article} />
                   {!isLastItem && (
                     <>

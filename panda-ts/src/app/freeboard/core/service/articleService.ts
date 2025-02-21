@@ -4,6 +4,8 @@ import {
   OrderByType,
   GetArticleApiQueryParams,
   ArticleList,
+  Article,
+  PostArticleApiQueryParams,
 } from "@/shared/type";
 
 /** 게시글 목록 조회
@@ -37,4 +39,25 @@ export const getArticleListAPI = async (
 export const ORDER_BY: OrderByType = {
   RECENT: { value: "recent", name: "최신순" },
   FAVORITE: { value: "favorite", name: "좋아요순" },
+};
+
+/** 게시글 등록
+ * @param {Object} params - 쿼리 정보
+ * @param {int} params.title - 게시글 제목
+ * @param {int} params.content - 게시글 내용
+ */
+export const createArticleAPI = async (
+  params: PostArticleApiQueryParams
+): Promise<Article> => {
+  try {
+    const response: AxiosResponse<Article> = await instance.post(
+      "/articles",
+      params
+    );
+
+    console.log("post 성공:", response.data);
+    return response.data;
+  } catch (err) {
+    throw err;
+  }
 };
