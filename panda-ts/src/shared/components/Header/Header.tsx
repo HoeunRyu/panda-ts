@@ -1,6 +1,5 @@
 "use client";
 
-import "./Header.css";
 import { HeaderLogo } from "./ui/HeaderLogo";
 import { HeaderLink } from "./ui/HeaderLink";
 import { HeaderUser } from "./ui/HeaderUser";
@@ -19,7 +18,7 @@ export function Header() {
           direction="row"
           justifyContent="flex-start"
           alignItems="center"
-          gap={"25px"}
+          sx={{ gap: { xs: "16px", sm: "25px" } }}
         >
           <HeaderLogo />
           <HeaderLink />
@@ -47,6 +46,7 @@ const headerStyles = {
   position: "sticky",
   top: 0,
   zIndex: 5,
+  flexShrink: 0,
 };
 
 const navStyles = {

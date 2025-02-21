@@ -14,7 +14,12 @@ export function HeaderLink() {
     pathname === path ? colorChips.primary100 : colorChips.gray600;
 
   return (
-    <Stack direction="row" justifyContent="flex-start" alignItems="center">
+    <Stack
+      direction="row"
+      justifyContent="flex-start"
+      alignItems="center"
+      sx={{ flexShrink: 0 }}
+    >
       <Link href="/freeboard" style={{ textDecoration: "none" }}>
         <Typo
           className="text18Bold"
@@ -43,4 +48,5 @@ const linkItemStyles = {
   fontSize: { xs: "16px", sm: "18px" },
   fontWeight: 700,
   lineHeight: "150%",
+  whiteSpace: "nowrap",
 };

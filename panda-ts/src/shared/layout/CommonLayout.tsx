@@ -1,5 +1,5 @@
-import { Header } from "@/shared/Header/Header";
-import { Footer } from "@/shared/Footer/Footer";
+import { Header } from "@/shared/components/Header/Header";
+import { Footer } from "@/shared/components/Footer/Footer";
 import { Stack, Box } from "@mui/material";
 
 const styles = {

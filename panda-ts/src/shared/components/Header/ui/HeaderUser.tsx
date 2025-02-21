@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { Typo } from "../../Typo/Typo";
+import { Typo } from "../../../Typo/Typo";
 import React from "react";
 import { colorChips } from "@/shared/styles/colorChips";
+import { Button, Stack } from "@mui/material";
+import Image from "next/image";
 
 interface HeaderUserProps {
   isLoggedIn: boolean;
@@ -13,24 +15,36 @@ export const HeaderUser: React.FC<HeaderUserProps> = ({
   handleClick,
 }) => {
   return (
-    <div id="user-btn" onClick={handleClick}>
+    <Stack sx={{ flexShrink: 0 }} onClick={handleClick}>
       {/* TODO: 현재 버튼 클릭할떄마다 프로필이미지/로그인버튼 전환되는 상태 */}
       {isLoggedIn ? (
-        <img
-          id="profile-img"
+        <Image
           src={"/assets/default_profile.png"}
           alt="프로필 사진"
+          width={40}
+          height={40}
         />
       ) : (
         // TODO: 링크 수정하기 "/login"
         <Link id="login-btn" href="/">
-          <Typo
-            className={"text16Semibold"}
-            color={colorChips.gray100}
-            content="로그인"
-          />
+          <Button variant="contained" sx={loginBtnStyle}>
+            <Typo
+              className={"text16Semibold"}
+              color={colorChips.gray100}
+              content="로그인"
+            />
+          </Button>
         </Link>
       )}
-    </div>
+    </Stack>
   );
+};
+
+const loginBtnStyle = {
+  width: "100%",
+  height: "42px",
+  backgroundColor: colorChips.primary100,
+  borderRadius: "8px",
+  padding: "12px 23px",
+  border: "none",
 };

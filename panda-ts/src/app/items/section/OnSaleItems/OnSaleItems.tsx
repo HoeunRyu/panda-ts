@@ -1,7 +1,7 @@
 import "./OnSaleItems.css";
 import { SearchItems } from "./ui/SearchItems";
 import { PostItems } from "./ui/PostItems";
-import { SortItems } from "./ui/SortItems";
+import { SortItems } from "@/app/items/section/OnSaleItems/ui/SortItems";
 import { ItemCard } from "../common/ui/ItemCard";
 import { PaginationItems } from "./ui/PaginationItems";
 import { Typo } from "../../../../shared/Typo/Typo";

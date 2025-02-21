@@ -1,8 +1,7 @@
-import "./Footer.css";
 import { FooterLink } from "./ui/FooterLink";
 import { FooterSns } from "./ui/FooterSns";
-import { Typo } from "../Typo/Typo";
-import { colorChips } from "../styles/colorChips";
+import { Typo } from "../../Typo/Typo";
+import { colorChips } from "../../styles/colorChips";
 import { Box, Stack } from "@mui/material";
 export interface SnsLinkList {
   snsName: string;
@@ -37,7 +36,7 @@ export function Footer() {
   return (
     <Stack sx={footerStyles}>
       <Stack sx={footerContentStyles}>
-        <Box id="addr">
+        <Box sx={{ gridArea: "addr" }}>
           <Typo
             className={"text16Regular"}
             color={colorChips.gray400}
@@ -45,18 +44,22 @@ export function Footer() {
           />
         </Box>
 
-        <FooterLink />
+        <Box sx={{ gridArea: "link" }}>
+          <FooterLink />
+        </Box>
 
-        <Stack
-          direction="row"
-          justifyContent="flex-end"
-          alignItems="center"
-          gap={"12px"}
-        >
-          {SNS_LINK_LIST.map((sns, idx) => (
-            <FooterSns sns={sns} key={idx} />
-          ))}
-        </Stack>
+        <Box sx={{ gridArea: "sns" }}>
+          <Stack
+            direction="row"
+            justifyContent="flex-end"
+            alignItems="center"
+            gap={"12px"}
+          >
+            {SNS_LINK_LIST.map((sns, idx) => (
+              <FooterSns sns={sns} key={idx} />
+            ))}
+          </Stack>
+        </Box>
       </Stack>
     </Stack>
   );

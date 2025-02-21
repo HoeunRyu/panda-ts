@@ -29,7 +29,7 @@ export const useItemsFetch = (
       setIsLoading(true);
       const startTime = Date.now();
 
-      console.log("쿼리 파라미터: ", params);
+      // console.log("쿼리 파라미터: ", params);
       const response: ProductList = await getItemsListAPI(params);
       setData({
         ProductList: response.ProductList,

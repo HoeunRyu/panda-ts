@@ -13,4 +13,5 @@ export const colorChips = {
   gray100: "#f3f4f6",
   gray50: "#f9fafb",
   box_bg: "#e6f2ff",
+  white: "#ffffff",
 } as const;

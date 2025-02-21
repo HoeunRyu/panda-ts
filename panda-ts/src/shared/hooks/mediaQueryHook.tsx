@@ -6,8 +6,8 @@ const BREAKPOINTS: {
   MOBILE: number;
   TABLET: number;
 } = {
-  MOBILE: 743,
-  TABLET: 1199,
+  MOBILE: 744,
+  TABLET: 1200,
 };
 
 interface ScreenSizeState {
@@ -41,7 +41,7 @@ const useScreenSizeStore = create<ScreenSizeState>((set, get) => ({
     if (newSize !== currentScreenSize) {
       // console.log("!!!!!!이걸로 바꿔줘!!!!!", newSize);
       set({ screenSize: newSize });
-      // console.log("변경! 스크린사이즈 업데이트: ", get().screenSize); //set이후 다시 새로운 상태 가져옴: 업데이트가 잘 됐는지 확인
+      // ("변경! 스크린사이즈 업데이트: ", get().screenSize); //set이후 다시 새로운 상태 가져옴: 업데이트가 잘 됐는지 확인
     }
   },
 }));

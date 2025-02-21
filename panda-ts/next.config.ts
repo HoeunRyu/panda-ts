@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: false,
   images: {
-    domains: ["cdsassets.apple.com"],
+    domains: ["cdsassets.apple.com", "encrypted-tbn3.gstatic.com"],
   },
 };
 

@@ -27,7 +27,7 @@ export const getArticleListAPI = async (
       }
     );
     response.status;
-    console.log("getArticleList", response.data);
+    // console.log("getArticleList", response.data);
     return response.data;
   } catch (err) {
     throw err;

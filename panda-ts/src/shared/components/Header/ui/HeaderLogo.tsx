@@ -22,7 +22,7 @@ export function HeaderLogo() {
           alt="로고 텍스트"
           width={103}
           height={50}
-          style={{ width: "103px", height: "auto" }}
+          style={{ width: "auto", height: "auto" }}
         />
       </Stack>
     </Link>

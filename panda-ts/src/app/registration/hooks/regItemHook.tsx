@@ -132,11 +132,11 @@ export const useRegItem = () => {
       const { name, description, price, tags } = body;
       const reqBody = { name, description, price, tags };
       const response: Product = await createItemAPI(reqBody);
-      console.log("상품 등록 완료 :", response);
+      // console.log("상품 등록 완료 :", response);
       const itemId = response.id;
       router.push(`/items/${itemId}`);
     } catch (error) {
-      console.error("상품 등록하기 오류: ", error);
+      // console.error("상품 등록하기 오류: ", error);
     }
   }, [body]);
 

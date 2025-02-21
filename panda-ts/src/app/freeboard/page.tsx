@@ -21,4 +21,5 @@ const freeboardStyle = {
   maxWidth: "1200px",
   height: "100%",
   margin: "0 auto",
+  gap: { xs: "24px", md: "40px" },
 };
