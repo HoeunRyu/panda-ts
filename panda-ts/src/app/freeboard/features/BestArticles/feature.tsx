@@ -26,7 +26,7 @@ export const BestArticles = () => {
   return (
     <Stack sx={bestArticlesStyle}>
       <Typo
-        className="textXlBold"
+        className="text20Bold"
         content="베스트 게시글"
         color={colorChips.gray900}
       />

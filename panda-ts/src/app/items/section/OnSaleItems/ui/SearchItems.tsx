@@ -1,5 +1,4 @@
 // import searchIcon from "public/assets/search_icon.png";
-import { typoStyles } from "@/shared/Typo/Typo";
 import React from "react";
 
 interface SearchItemsProps {
@@ -26,7 +25,7 @@ export const SearchItems: React.FC<SearchItemsProps> = ({ onSearch }) => {
     <div id="search-items-wrapper">
       <input
         id="input-search-keyword"
-        className={typoStyles.textLgRegular}
+        className={"text-lg regular"}
         name="keyword"
         type="text"
         placeholder="검색할 상품을 입력해주세요"

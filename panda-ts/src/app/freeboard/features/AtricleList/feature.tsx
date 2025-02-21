@@ -6,7 +6,7 @@ export const AtricleList = () => {
   return (
     <Stack>
       <Typo
-        className="textXlBold"
+        className="text20Bold"
         content="게시글 목록"
         color={colorChips.gray900}
       />

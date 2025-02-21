@@ -3,7 +3,7 @@ import { FooterLink } from "./ui/FooterLink";
 import { FooterSns } from "./ui/FooterSns";
 import { Typo } from "../Typo/Typo";
 import { colorChips } from "../styles/colorChips";
-
+import { Box, Stack } from "@mui/material";
 export interface SnsLinkList {
   snsName: string;
   href: string;
@@ -35,24 +35,53 @@ const SNS_LINK_LIST: SnsLinkList[] = [
 
 export function Footer() {
   return (
-    <footer>
-      <div className="content">
-        <div id="addr">
+    <Stack sx={footerStyles}>
+      <Stack sx={footerContentStyles}>
+        <Box id="addr">
           <Typo
-            className={"textLgRegular"}
+            className={"text16Regular"}
             color={colorChips.gray400}
             content="©codeit - 2024"
           />
-        </div>
+        </Box>
 
         <FooterLink />
 
-        <div className="sns-box">
+        <Stack
+          direction="row"
+          justifyContent="flex-end"
+          alignItems="center"
+          gap={"12px"}
+        >
           {SNS_LINK_LIST.map((sns, idx) => (
             <FooterSns sns={sns} key={idx} />
           ))}
-        </div>
-      </div>
-    </footer>
+        </Stack>
+      </Stack>
+    </Stack>
   );
 }
+
+const footerStyles = {
+  width: "100%",
+  height: "160px",
+  backgroundColor: colorChips.gray900,
+  padding: "32px 0",
+};
+
+const footerContentStyles = {
+  display: { xs: "grid", sm: "flex" },
+  gridTemplateAreas: {
+    xs: '"link sns" "addr ."',
+    sm: '"addr link sns"',
+  },
+  rowGap: "24px",
+  flexDirection: "row",
+  justifyContent: "space-between",
+  alignItems: "center",
+  width: "100%",
+  maxWidth: "1440px",
+  margin: "0 auto",
+  padding: { xs: "0 16px", sm: "0 24px" },
+  color: colorChips.gray400,
+};

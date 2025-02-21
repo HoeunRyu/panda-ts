@@ -32,12 +32,12 @@ export const BestCard = ({ article, isLoading }: BestCardProps) => {
           width={16}
           height={16}
         />
-        <Typo className="textLgSemibold" content="Best" color="#FFFFFF" />
+        <Typo className="text16Semibold" content="Best" color="#FFFFFF" />
       </Stack>
       <Stack sx={ContentWrapperStyle}>
         <Stack sx={descStyle}>
           <Typo
-            className="textXlSemibold"
+            className="text18Semibold"
             content={article.title}
             color={colorChips.gray800}
           />
@@ -53,7 +53,7 @@ export const BestCard = ({ article, isLoading }: BestCardProps) => {
         <Stack sx={articleInfoStyle}>
           <Stack direction="row" alignItems="center" gap="8px">
             <Typo
-              className="textMdRegular"
+              className="text14Regular"
               content={nickname}
               color={colorChips.gray600}
             />
@@ -65,14 +65,14 @@ export const BestCard = ({ article, isLoading }: BestCardProps) => {
                 height={16}
               />
               <Typo
-                className="textMdRegular"
+                className="text14Regular"
                 content={article.favoritesCount.toString()}
                 color={colorChips.gray500}
               />
             </Stack>
           </Stack>
           <Typo
-            className="textMdRegular"
+            className="text14Regular"
             content={formattedDate}
             color={colorChips.gray400}
           />

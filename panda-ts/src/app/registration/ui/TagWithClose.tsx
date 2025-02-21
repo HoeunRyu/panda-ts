@@ -11,7 +11,7 @@ export const TagWithClose: React.FC<TagWithCloseProps> = ({
   return (
     <div className="tag-chips">
       <Typo
-        className={"textLgRegular"}
+        className={"text16Regular"}
         color={colorChips.gray800}
         content={`#${tag}`}
       />

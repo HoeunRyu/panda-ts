@@ -6,7 +6,7 @@ export function PostItems() {
   return (
     <Link id="post-item-btn" href="/registration">
       <Typo
-        className={"textLgSemibold"}
+        className={"text16Semibold"}
         color={colorChips.gray100}
         content="상품 등록하기"
       />

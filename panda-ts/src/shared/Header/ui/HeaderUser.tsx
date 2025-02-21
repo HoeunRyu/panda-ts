@@ -25,7 +25,7 @@ export const HeaderUser: React.FC<HeaderUserProps> = ({
         // TODO: 링크 수정하기 "/login"
         <Link id="login-btn" href="/">
           <Typo
-            className={"textLgSemibold"}
+            className={"text16Semibold"}
             color={colorChips.gray100}
             content="로그인"
           />

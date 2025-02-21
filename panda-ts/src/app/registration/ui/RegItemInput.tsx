@@ -1,7 +1,7 @@
 "use client";
 
 import "./RegItemInput.css";
-import { Typo, typoStyles } from "@/shared/Typo/Typo";
+import { Typo } from "@/shared/Typo/Typo";
 import React, { useRef } from "react";
 import { colorChips } from "@/shared/styles/colorChips";
 import { InputCommonProps, RegItemInputProps } from "../type";
@@ -61,7 +61,7 @@ export const RegItemInput: React.FC<RegItemInputProps> = ({
   const commonProps: InputCommonProps = {
     className: `${
       type === "textarea" ? "textarea-box" : "input-box"
-    } ${errInputBoxClassName} ${typoStyles.textLgRegular}`,
+    } ${errInputBoxClassName} text-lg regular`,
     placeholder,
     onBlur: handleBlur,
     onKeyDown: handleKeyDown,
@@ -70,7 +70,7 @@ export const RegItemInput: React.FC<RegItemInputProps> = ({
   return (
     <div className="input-wrapper">
       <Typo
-        className={"text2lgBold"}
+        className={"text18Bold"}
         content={label}
         color={colorChips.gray800}
       />
@@ -82,9 +82,7 @@ export const RegItemInput: React.FC<RegItemInputProps> = ({
       )}
 
       {errMsg && (
-        <p
-          className={`err-text ${typoStyles.textLgSemibold} ${errMsgClassName}`}
-        >
+        <p className={`err-text text-lg semibold ${errMsgClassName}`}>
           {errMsg}
         </p>
       )}

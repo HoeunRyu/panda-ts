@@ -44,7 +44,7 @@ export function BestItems(): React.ReactElement {
   return (
     <section id="best-items">
       <Typo
-        className={"textXlBold"}
+        className={"text20Bold"}
         content="베스트 상품"
         color={colorChips.gray800}
       />

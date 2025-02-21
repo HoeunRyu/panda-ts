@@ -32,12 +32,12 @@ export function ItemCard({
 
       <div className="item-card-text">
         <Typo
-          className={"textMdMedium"}
+          className={"text14Medium"}
           color={colorChips.gray800}
           content={name}
         />
         <Typo
-          className={"textLgBold"}
+          className={"text16Bold"}
           color={colorChips.gray800}
           content={formattedPrice}
         />
@@ -48,7 +48,7 @@ export function ItemCard({
             alt="좋아요 아이콘"
           />
           <Typo
-            className={"textXsMedium"}
+            className={"text12Medium"}
             content={favoritesCount.toString()}
             color={colorChips.gray600}
           />

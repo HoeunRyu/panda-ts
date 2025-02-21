@@ -1,6 +1,5 @@
 import { useResponseSort } from "@/shared/hooks/responseSortHook";
 import { ORDER_BY } from "../../../../../utils/APIs/getItemsListAPI";
-import { typoStyles } from "@/shared/Typo/Typo";
 import { useMediaQuery } from "@/shared/hooks/mediaQueryHook";
 import { OrderByItem, ScreenSizeType } from "@/shared/type";
 import React from "react";
@@ -32,7 +31,7 @@ export const SortItems: React.FC<SortItemsProps> = ({ onSortChange }) => {
   return (
     <div
       id="sort-items-wrapper"
-      className={typoStyles.textLgRegular}
+      className={"text-lg reguar"}
       onClick={toggleDropdown}
     >
       <p className={`sort-items-label ${sortItemsLabelClassName}`}>

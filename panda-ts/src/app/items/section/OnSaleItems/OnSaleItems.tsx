@@ -56,7 +56,7 @@ export function OnSaleItems() {
     <section id="on-sale-items">
       <div className="section-top">
         <Typo
-          className={"textXlBold"}
+          className={"text20Bold"}
           color={colorChips.gray800}
           content="판매 중인 상품"
         />

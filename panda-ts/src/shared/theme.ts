@@ -27,9 +27,9 @@ const theme = createTheme({
     // 일단 기본값으로 덮어썼는데, 추후 커스텀 필요하면 수정하기
     values: {
       xs: 0,
-      sm: 344,
-      md: 744,
-      lg: 1200,
+      sm: 744,
+      md: 1200,
+      lg: 1500,
       xl: 1536,
     },
   },

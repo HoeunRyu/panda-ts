@@ -2,7 +2,7 @@
 
 import "./RegistrationItemsPage.css";
 import { RegItemInput } from "./ui/RegItemInput";
-import { Typo, typoStyles } from "../../shared/Typo/Typo";
+import { Typo } from "../../shared/Typo/Typo";
 import { TagWithClose } from "./ui/TagWithClose";
 import { useRegItem } from "./hooks/regItemHook";
 import { colorChips } from "@/shared/styles/colorChips";
@@ -22,13 +22,13 @@ export default function Page(): React.ReactElement {
     <div className="content" id="registration-items-page">
       <div className="section-top">
         <Typo
-          className={"textXlBold"}
+          className={"text20Bold"}
           content="상품 등록하기"
           color={colorChips.gray800}
         />
         <button
           id="reg-btn"
-          className={`${typoStyles.textLgSemibold} ${
+          className={`${"text-lg semibold"} ${
             !isFormDisabled() ? "active" : ""
           }`}
           disabled={isFormDisabled()}

@@ -1,6 +1,5 @@
 // import arrowLeft from "public/assets/arrow_left.png";
 // import arrowRight from "public/assets/arrow_right.png";
-import { typoStyles } from "@/shared/Typo/Typo";
 import { usePagination } from "@/shared/hooks/paginationHook";
 import React from "react";
 
@@ -31,9 +30,9 @@ export const PaginationItems: React.FC<PaginationItemsProps> = ({
       {pageNums.map((page) => {
         return (
           <button
-            className={`page-btn ${page === currentPage ? "selected" : ""} ${
-              typoStyles.textLgSemibold
-            }`}
+            className={`page-btn ${
+              page === currentPage ? "selected" : ""
+            } text-lg semibold`}
             onClick={() => {
               handlePageClick(page);
               onPageChange(page); //상위 컴포넌트에 선택한 페이지 전달
