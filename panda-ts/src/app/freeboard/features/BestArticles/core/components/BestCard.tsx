@@ -14,7 +14,6 @@ interface BestCardProps {
   onClick: () => void;
 }
 
-//TODO: 카드 클릭 시 게시글 상세 페이지로 이동
 //TODO: 로딩중 스켈레톤 표시
 
 export const BestCard = ({ article, isLoading, onClick }: BestCardProps) => {

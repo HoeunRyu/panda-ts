@@ -13,6 +13,8 @@ export const articleKeys = {
   best: (limit: number) => [...articleKeys.all, "best", limit] as const,
   list: (params: { keyword: string; page: number; sort: string }) =>
     [...articleKeys.all, "list", params] as const,
+  detail: (articleId: string) =>
+    [...articleKeys.all, "detail", articleId] as const,
 };
 
 export const useBestArticles = (limit: number) => {
